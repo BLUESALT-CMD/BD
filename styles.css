@@ -1,0 +1,228 @@
+:root {
+    --primary-color: #ffb7b2;
+    /* Soft Pink */
+    --secondary-color: #ff9e99;
+    /* Darker Pink */
+    --accent-color: #98ddca;
+    /* Sage Green */
+    --text-color: #5d5d5d;
+    /* Soft Grey */
+    --bg-color: #fff5f5;
+    /* Very Light Pink Background */
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --font-heading: 'Great Vibes', cursive;
+    --font-body: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: var(--font-body);
+    color: var(--text-color);
+    overflow: hidden;
+    /* Prevent scrollbars from falling petals */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: radial-gradient(circle, #fff5f5 0%, #ffe3e3 100%);
+}
+
+#canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    perspective: 1000px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    animation: float 6s ease-in-out infinite;
+    transform-style: preserve-3d;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.title {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    color: var(--secondary-color);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.8);
+}
+
+.name {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 2.5rem;
+    color: var(--text-color);
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.message-section {
+    margin-top: 1rem;
+}
+
+.age {
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.wish {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Music Controls */
+.controls {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    background: white;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.btn:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 183, 178, 0.4);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Floral Decorations (CSS Flowers) */
+.flower-decoration {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+}
+
+/* Simple CSS Flower Shapes using pseudo-elements */
+.flower-decoration::before,
+.flower-decoration::after {
+    content: '';
+    position: absolute;
+    background: var(--primary-color);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    top: 15px;
+    left: 15px;
+}
+
+.flower-decoration::before {
+    transform: translateX(-15px);
+}
+
+.flower-decoration::after {
+    transform: translateY(-15px);
+}
+
+.top-left {
+    top: -20px;
+    left: -20px;
+    transform: rotate(-45deg);
+}
+
+.top-right {
+    top: -20px;
+    right: -20px;
+    transform: rotate(45deg);
+}
+
+.bottom-left {
+    bottom: -20px;
+    left: -20px;
+    transform: rotate(-135deg);
+}
+
+.bottom-right {
+    bottom: -20px;
+    right: -20px;
+    transform: rotate(135deg);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .card {
+        padding: 2rem 1.5rem;
+        width: 95%;
+    }
+
+    .title {
+        font-size: 3rem;
+    }
+
+    .name {
+        font-size: 2rem;
+    }
+}
